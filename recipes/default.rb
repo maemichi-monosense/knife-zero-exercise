@@ -13,8 +13,8 @@ include_recipe "LAMP"
   end
 end
 
-www = "#{node['LAMP']['www']}"
 group = "#{node['LAMP']['group']['name']}"
+www = "#{node['LAMP']['www']}"
 
 directory "#{www}" do
   recursive true
@@ -22,4 +22,20 @@ directory "#{www}" do
   owner "#{group}"
   group "#{group}"
   action :create
+end
+
+doc_root = "#{node['LAMP']['doc_root']}"
+
+directory "#{doc_root}" do
+  recursive true
+  action :create
+end
+
+html = "#{node['LAMP']['doc_root']}index.html"
+
+file "#{html}" do
+  mode '0664'
+  owner "#{group}"
+  group "#{group}"
+  action :touch
 end
