@@ -55,11 +55,7 @@ template "httpd_conf" do
 end
 
 # fish-shell
-yum_repository 'fish' do
-  baseurl 'http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo'
-  action :create
-end
-
-package 'fish' do
+rpm_package 'fish' do
+  source "#{node['LAMP']['fish']}"
   action :install
 end
