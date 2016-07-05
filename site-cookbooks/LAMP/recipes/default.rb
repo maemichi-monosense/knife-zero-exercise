@@ -60,4 +60,5 @@ template "php.ini" do
   path '/etc/php.ini'
   source "php.ini.erb"
   mode '0644'
+  notifies :reload, 'service[httpd]'
 end
