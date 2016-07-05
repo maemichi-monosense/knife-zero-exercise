@@ -11,14 +11,21 @@
   end
 end
 
-group = "#{node['LAMP']['group']['name']}"
+name = "#{node['LAMP']['group']['name']}"
+
+group "#{name}" do
+  action :create
+  members 'ec2-user'
+  append true
+end
+
 www = "#{node['LAMP']['www']}"
 
 directory "#{www}" do
   recursive true
   mode '2775'
-  owner "#{group}"
-  group "#{group}"
+  owner "#{name}"
+  group "#{name}"
   action :create
 end
 
@@ -33,7 +40,7 @@ html = "#{node['LAMP']['doc_root']}index.html"
 
 file "#{html}" do
   mode '0664'
-  owner "#{group}"
-  group "#{group}"
+  owner "#{name}"
+  group "#{name}"
   action :touch
 end
