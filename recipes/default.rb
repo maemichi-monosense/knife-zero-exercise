@@ -6,7 +6,9 @@
 
 include_recipe "LAMP"
 
-service "httpd" do
-  supports status: true, restart: true, reload: true
-  action [:enable, :start]
+%w(httpd mysqld).each do |srv|
+  service srv do
+    supports status: true, restart: true, reload: true
+    action [:enable, :start]
+  end
 end
