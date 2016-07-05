@@ -4,10 +4,6 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-yum_repository 'fish' do
-  action :delete
-end
-
 %w(php-devel php-mbstring).each { |p| package p }
 
 %w(httpd mysqld).each do |srv|
