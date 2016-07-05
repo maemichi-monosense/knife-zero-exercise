@@ -3158,5 +3158,8 @@
     "roles": [
 
     ]
-  }
+  },
+  "run_list": [
+    "recipe[LAMP]"
+  ]
 }
