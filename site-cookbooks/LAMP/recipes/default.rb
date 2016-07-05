@@ -48,12 +48,16 @@ file "#{html}" do
   action :nothing
 end
 
-httpd_conf = node['LAMP']['httpd_conf']
+httpd_conf_d = node['LAMP']['httpd/conf.d']
 
-template "httpd_conf" do
-  path "#{httpd_conf['dir']}#{httpd_conf['name']}"
-  source "httpd_conf.erb"
+template "vhosts" do
+  path "#{httpd_conf_d['path']}#{httpd_conf_d['vhosts']}"
+  source "vhosts.erb"
   mode '0644'
+end
+
+file "#{httpd_conf_d['path']}#{node['LAMP']['httpd_conf']['name']}" do
+  action :delete
 end
 
 template "php.ini" do

@@ -504,8 +504,11 @@
       ]
     },
     "LAMP": {
+      "httpd/conf.d": {
+        "path": "/etc/httpd/conf.d/",
+        "vhosts": "vhosts.conf"
+      },
       "httpd_conf": {
-        "dir": "/etc/httpd/conf.d/",
         "name": "virtual.conf"
       },
       "vhost_domain": "lamp.monosense.com",
