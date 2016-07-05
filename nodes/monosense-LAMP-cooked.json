@@ -508,9 +508,6 @@
         "path": "/etc/httpd/conf.d/",
         "vhosts": "vhosts.conf"
       },
-      "httpd_conf": {
-        "name": "virtual.conf"
-      },
       "vhost_domain": "lamp.monosense.com",
       "www": "/var/www/",
       "doc_root": "/var/www/html/",
