@@ -53,3 +53,9 @@ template "httpd_conf" do
   source "httpd_conf.erb"
   mode '0644'
 end
+
+template "php.ini" do
+  path '/etc/php.ini'
+  source "php.ini.erb"
+  mode '0644'
+end
