@@ -56,10 +56,6 @@ template "vhosts" do
   mode '0644'
 end
 
-file "#{httpd_conf_d['path']}#{node['LAMP']['httpd_conf']['name']}" do
-  action :delete
-end
-
 template "php.ini" do
   path '/etc/php.ini'
   source "php.ini.erb"
