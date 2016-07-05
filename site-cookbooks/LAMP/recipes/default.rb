@@ -4,7 +4,8 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-%w(php-devel php-mbstring).each { |p| package p }
+# PHP
+%w(php-mysql php-devel php-mbstring).each { |p| package p }
 
 %w(httpd mysqld).each do |srv|
   service srv do
