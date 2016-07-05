@@ -1,10 +1,10 @@
 name 'LAMP'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Yuya'
+maintainer_email 'maemichi@monosense.co.jp'
 license 'all_rights'
 description 'Installs/Configures LAMP'
 long_description 'Installs/Configures LAMP'
-version '0.1.0'
+version '0.5.0'
 
 depends 'apache2', '~> 3.2.2'
 depends 'mysql', '~> 7.2.0'
