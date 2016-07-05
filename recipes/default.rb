@@ -53,11 +53,3 @@ template "httpd_conf" do
   source "httpd_conf.erb"
   mode '0644'
 end
-
-python_runtime '3.5'
-
-# fish-shell
-rpm_package 'fish' do
-  source "#{node['LAMP']['fish']}"
-  action :install
-end
