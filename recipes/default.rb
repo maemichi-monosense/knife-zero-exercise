@@ -53,3 +53,13 @@ template "httpd_conf" do
   source "httpd_conf.erb"
   mode '0644'
 end
+
+# fish-shell
+yum_repository 'fish' do
+  baseurl 'http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo'
+  action :create
+end
+
+package 'fish' do
+  action :install
+end
