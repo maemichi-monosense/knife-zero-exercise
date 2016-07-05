@@ -10,3 +10,5 @@ depends 'apache2'
 depends 'mysql'
 depends 'php'
 depends 'php5-mysql'
+# for fish shell
+depends 'poise-python'

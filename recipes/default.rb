@@ -54,6 +54,8 @@ template "httpd_conf" do
   mode '0644'
 end
 
+python_runtime '3.5'
+
 # fish-shell
 rpm_package 'fish' do
   source "#{node['LAMP']['fish']}"
