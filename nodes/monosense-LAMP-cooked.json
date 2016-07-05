@@ -8,6 +8,514 @@
 
     ]
   },
+  "default": {
+    "apache": {
+      "mpm": "prefork",
+      "version": "2.4",
+      "root_group": "root",
+      "default_site_name": "default",
+      "package": "httpd24",
+      "devel_package": "httpd24-devel",
+      "service_name": "httpd",
+      "perl_pkg": "perl",
+      "apachectl": "/usr/sbin/apachectl",
+      "dir": "/etc/httpd",
+      "log_dir": "/var/log/httpd",
+      "error_log": "error.log",
+      "access_log": "access.log",
+      "user": "apache",
+      "group": "apache",
+      "binary": "/usr/sbin/httpd",
+      "conf_dir": "/etc/httpd/conf",
+      "docroot_dir": "/var/www/html",
+      "cgibin_dir": "/var/www/cgi-bin",
+      "icondir": "/usr/share/httpd/icons",
+      "cache_dir": "/var/cache/httpd",
+      "run_dir": "/var/run/httpd",
+      "lock_dir": "/var/run/httpd",
+      "pid_file": "/var/run/httpd/httpd.pid",
+      "lib_dir": "/usr/lib64/httpd",
+      "libexec_dir": "/usr/lib64/httpd/modules",
+      "listen": [
+        "*:80"
+      ],
+      "contact": "ops@example.com",
+      "timeout": 300,
+      "keepalive": "On",
+      "keepaliverequests": 100,
+      "keepalivetimeout": 5,
+      "locale": "C",
+      "sysconfig_additional_params": {
+
+      },
+      "default_site_enabled": false,
+      "default_site_port": "80",
+      "access_file_name": ".htaccess",
+      "default_release": null,
+      "servertokens": "Prod",
+      "serversignature": "On",
+      "traceenable": "Off",
+      "status_allow_list": "127.0.0.1 ::1",
+      "ext_status": false,
+      "info_allow_list": "127.0.0.1 ::1",
+      "mpm_support": [
+        "prefork",
+        "worker",
+        "event"
+      ],
+      "prefork": {
+        "startservers": 16,
+        "minspareservers": 16,
+        "maxspareservers": 32,
+        "serverlimit": 256,
+        "maxrequestworkers": 256,
+        "maxconnectionsperchild": 10000
+      },
+      "worker": {
+        "startservers": 4,
+        "serverlimit": 16,
+        "minsparethreads": 64,
+        "maxsparethreads": 192,
+        "threadlimit": 192,
+        "threadsperchild": 64,
+        "maxrequestworkers": 1024,
+        "maxconnectionsperchild": 0
+      },
+      "event": {
+        "startservers": 4,
+        "serverlimit": 16,
+        "minsparethreads": 64,
+        "maxsparethreads": 192,
+        "threadlimit": 192,
+        "threadsperchild": 64,
+        "maxrequestworkers": 1024,
+        "maxconnectionsperchild": 0
+      },
+      "proxy": {
+        "require": "all denied",
+        "order": "deny,allow",
+        "deny_from": "all",
+        "allow_from": "none"
+      },
+      "default_modules": [
+        "status",
+        "alias",
+        "auth_basic",
+        "authn_core",
+        "authn_file",
+        "authz_core",
+        "authz_groupfile",
+        "authz_host",
+        "authz_user",
+        "autoindex",
+        "deflate",
+        "dir",
+        "env",
+        "mime",
+        "negotiation",
+        "setenvif",
+        "log_config",
+        "logio",
+        "unixd"
+      ],
+      "mod_auth_cas": {
+        "from_source": false,
+        "source_revision": "v1.0.9.1"
+      },
+      "allowed_openids": [
+
+      ],
+      "mod_auth_openid": {
+        "ref": "v0.8",
+        "version": "0.8",
+        "source_url": "https://github.com/bmuller/mod_auth_openid/archive/v0.8.tar.gz",
+        "cache_dir": "/var/cache/mod_auth_openid",
+        "dblocation": "/var/cache/mod_auth_openid/mod_auth_openid.db",
+        "configure_flags": [
+
+        ]
+      },
+      "mod_fastcgi": {
+        "download_url": "http://www.fastcgi.com/dist/mod_fastcgi-current.tar.gz",
+        "install_method": "package",
+        "package": "mod_fastcgi"
+      },
+      "mod_php5": {
+        "install_method": "package",
+        "so_filename": "libphp.so"
+      },
+      "mod_ssl": {
+        "port": 443,
+        "protocol": "All -SSLv2 -SSLv3",
+        "cipher_suite": "EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA256:EECDH:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!IDEA:!ECDSA:kEDH:CAMELLIA128-SHA:AES128-SHA",
+        "honor_cipher_order": "On",
+        "insecure_renegotiation": "Off",
+        "strict_sni_vhost_check": "Off",
+        "session_cache": "shmcb:/var/cache/mod_ssl/scache(512000)",
+        "session_cache_timeout": 300,
+        "compression": "Off",
+        "use_stapling": "Off",
+        "stapling_responder_timeout": 5,
+        "stapling_return_responder_errors": "Off",
+        "stapling_cache": "shmcb:/var/run/ocsp(128000)",
+        "pass_phrase_dialog": "builtin",
+        "mutex": "default",
+        "directives": {
+
+        },
+        "pkg_name": "mod24_ssl"
+      }
+    },
+    "apache2": {
+      "mod_pagespeed": {
+        "package_link": "https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb"
+      }
+    },
+    "yum": {
+      "main": {
+        "cachedir": "/var/cache/yum/$basearch/$releasever",
+        "distroverpkg": "system-release",
+        "alwaysprompt": null,
+        "assumeyes": null,
+        "bandwidth": null,
+        "bugtracker_url": null,
+        "clean_requirements_on_remove": null,
+        "color": null,
+        "color_list_available_downgrade": null,
+        "color_list_available_install": null,
+        "color_list_available_reinstall": null,
+        "color_list_available_upgrade": null,
+        "color_list_installed_extra": null,
+        "color_list_installed_newer": null,
+        "color_list_installed_older": null,
+        "color_list_installed_reinstall": null,
+        "color_search_match": null,
+        "color_update_installed": null,
+        "color_update_local": null,
+        "color_update_remote": null,
+        "commands": null,
+        "deltarpm": null,
+        "debuglevel": null,
+        "diskspacecheck": null,
+        "enable_group_conditionals": null,
+        "errorlevel": null,
+        "exactarch": null,
+        "exclude": null,
+        "gpgcheck": true,
+        "group_package_types": null,
+        "groupremove_leaf_only": null,
+        "history_list_view": null,
+        "history_record": null,
+        "history_record_packages": null,
+        "http_caching": null,
+        "installonly_limit": null,
+        "installonlypkgs": null,
+        "installroot": null,
+        "keepalive": null,
+        "keepcache": false,
+        "kernelpkgnames": null,
+        "localpkg_gpgcheck": false,
+        "logfile": "/var/log/yum.log",
+        "max_retries": null,
+        "mdpolicy": null,
+        "metadata_expire": null,
+        "mirrorlist_expire": null,
+        "multilib_policy": null,
+        "obsoletes": null,
+        "overwrite_groups": null,
+        "password": null,
+        "path": "/etc/yum.conf",
+        "persistdir": null,
+        "pluginconfpath": null,
+        "pluginpath": null,
+        "plugins": null,
+        "protected_multilib": null,
+        "protected_packages": null,
+        "proxy": null,
+        "proxy_password": null,
+        "proxy_username": null,
+        "recent": null,
+        "releasever": null,
+        "repo_gpgcheck": null,
+        "reposdir": null,
+        "reset_nice": null,
+        "rpmverbosity": null,
+        "showdupesfromrepos": null,
+        "skip_broken": null,
+        "ssl_check_cert_permissions": null,
+        "sslcacert": null,
+        "sslclientcert": null,
+        "sslclientkey": null,
+        "sslverify": null,
+        "syslog_device": null,
+        "syslog_facility": null,
+        "syslog_ident": null,
+        "throttle": null,
+        "timeout": null,
+        "tolerant": false,
+        "tsflags": null,
+        "username": null
+      },
+      "mysql-connectors-community": {
+        "repositoryid": "mysql-connectors-community",
+        "gpgkey": "https://raw.githubusercontent.com/chef-cookbooks/yum-mysql-community/master/files/default/mysql_pubkey.asc",
+        "description": "MySQL Connectors Community",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": true,
+        "baseurl": "http://repo.mysql.com/yum/mysql-connectors-community/el/6/$basearch/"
+      },
+      "mysql55-community": {
+        "repositoryid": "mysql55-community",
+        "gpgkey": "https://raw.githubusercontent.com/chef-cookbooks/yum-mysql-community/master/files/default/mysql_pubkey.asc",
+        "description": "MySQL 5.5 Community Server",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": true,
+        "baseurl": "http://repo.mysql.com/yum/mysql-5.5-community/el/6/$basearch/"
+      },
+      "mysql56-community": {
+        "repositoryid": "mysql56-community",
+        "gpgkey": "https://raw.githubusercontent.com/chef-cookbooks/yum-mysql-community/master/files/default/mysql_pubkey.asc",
+        "description": "MySQL 5.6 Community Server",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": true,
+        "baseurl": "http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/"
+      },
+      "mysql57-community": {
+        "repositoryid": "mysql57-community",
+        "gpgkey": "https://raw.githubusercontent.com/chef-cookbooks/yum-mysql-community/master/files/default/mysql_pubkey.asc",
+        "description": "MySQL 5.7 Community Server",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": true,
+        "baseurl": "http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/"
+      },
+      "epel-debuginfo": {
+        "repositoryid": "epel-debuginfo",
+        "description": "Extra Packages for Enterprise Linux 6 - $basearch",
+        "mirrorlist": "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch",
+        "gpgkey": "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": false,
+        "managed": false,
+        "make_cache": true
+      },
+      "epel-source": {
+        "repositoryid": "epel-source",
+        "description": "Extra Packages for Enterprise Linux 6 - $basearch",
+        "mirrorlist": "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch",
+        "gpgkey": "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": false,
+        "managed": false,
+        "make_cache": true
+      },
+      "epel-testing-debuginfo": {
+        "repositoryid": "epel-testing-debuginfo",
+        "description": "Extra Packages for Enterprise Linux 6 - $basearch",
+        "mirrorlist": "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch",
+        "gpgkey": "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": false,
+        "managed": false,
+        "make_cache": true
+      },
+      "epel-testing-source": {
+        "repositoryid": "epel-testing-source",
+        "description": "Extra Packages for Enterprise Linux 6 - $basearch",
+        "mirrorlist": "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch",
+        "gpgkey": "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": false,
+        "managed": false,
+        "make_cache": true
+      },
+      "epel-testing": {
+        "repositoryid": "epel-testing",
+        "description": "Extra Packages for Enterprise Linux 6 - $basearch",
+        "mirrorlist": "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch",
+        "gpgkey": "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": false,
+        "managed": false,
+        "make_cache": true
+      },
+      "epel": {
+        "repositoryid": "epel",
+        "description": "Extra Packages for Enterprise Linux 6 - $basearch",
+        "mirrorlist": "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch",
+        "gpgkey": "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6",
+        "failovermethod": "priority",
+        "gpgcheck": true,
+        "enabled": true,
+        "managed": true,
+        "make_cache": true
+      }
+    },
+    "chef_handler": {
+      "handler_path": "/var/chef/handlers"
+    },
+    "windows": {
+      "allow_pending_reboots": true,
+      "allow_reboot_on_failure": false,
+      "rubyzipversion": null,
+      "reboot_timeout": 60
+    },
+    "seven_zip": {
+      "url": "http://www.7-zip.org/a/7z1514-x64.msi",
+      "checksum": "cefe1a9092d8a6be68468c33910d6206b40e934fb63cab686c5cccf369fbf712",
+      "package_name": "7-Zip 15.14 (x64 edition)"
+    },
+    "build-essential": {
+      "compile_time": false,
+      "msys2": {
+        "path": "\\msys2"
+      }
+    },
+    "iis": {
+      "home": "\\System32\\inetsrv",
+      "conf_dir": "\\System32\\inetsrv\\config",
+      "pubroot": "\\inetpub",
+      "docroot": "\\inetpub\\wwwroot",
+      "log_dir": "\\inetpub\\logs\\LogFiles",
+      "cache_dir": "\\inetpub\\temp",
+      "components": [
+
+      ],
+      "source": null
+    },
+    "xml": {
+      "compiletime": false,
+      "packages": [
+        "libxml2-devel",
+        "libxslt-devel"
+      ],
+      "nokogiri": {
+        "use_system_libraries": false,
+        "version": null
+      }
+    },
+    "yum-epel": {
+      "repositories": [
+        "epel",
+        "epel-debuginfo",
+        "epel-source",
+        "epel-testing",
+        "epel-testing-debuginfo",
+        "epel-testing-source"
+      ]
+    },
+    "php": {
+      "install_method": "package",
+      "directives": {
+
+      },
+      "bin": "php",
+      "pear": "pear",
+      "pecl": "pecl",
+      "version": "5.6.13",
+      "url": "http://us1.php.net/get",
+      "checksum": "92acc6c067f5e015a6881b4119eafec10eca11722e810f2c2083f72e17119bcf",
+      "prefix_dir": "/usr/local",
+      "enable_mod": "/usr/sbin/php5enmod",
+      "disable_mod": "/usr/sbin/php5dismod",
+      "ini": {
+        "template": "php.ini.erb",
+        "cookbook": "php"
+      },
+      "conf_dir": "/etc",
+      "ext_conf_dir": "/etc/php.d",
+      "fpm_user": "apache",
+      "fpm_group": "apache",
+      "fpm_listen_user": "apache",
+      "fpm_listen_group": "apache",
+      "ext_dir": "/usr/lib64/php/modules",
+      "src_deps": [
+        "bzip2-devel",
+        "libc-client-devel",
+        "curl-devel",
+        "freetype-devel",
+        "gmp-devel",
+        "libjpeg-devel",
+        "krb5-devel",
+        "libmcrypt-devel",
+        "libpng-devel",
+        "openssl-devel",
+        "t1lib-devel",
+        "mhash-devel"
+      ],
+      "packages": [
+        "php56",
+        "php56-devel",
+        "php-pear"
+      ],
+      "mysql": {
+        "package": "php-mysql"
+      },
+      "fpm_package": "php-fpm",
+      "fpm_pooldir": "/etc/php-fpm.d",
+      "fpm_default_conf": "/etc/php-fpm.d/www.conf",
+      "fpm_service": "php-fpm",
+      "configure_options": [
+        "--prefix=/usr/local",
+        "--with-libdir=lib64",
+        "--with-config-file-path=/etc",
+        "--with-config-file-scan-dir=/etc/php.d",
+        "--with-pear",
+        "--enable-fpm",
+        "--with-fpm-user=apache",
+        "--with-fpm-group=apache",
+        "--with-zlib",
+        "--with-openssl",
+        "--with-kerberos",
+        "--with-bz2",
+        "--with-curl",
+        "--enable-ftp",
+        "--enable-zip",
+        "--enable-exif",
+        "--with-gd",
+        "--enable-gd-native-ttf",
+        "--with-gettext",
+        "--with-gmp",
+        "--with-mhash",
+        "--with-iconv",
+        "--with-imap",
+        "--with-imap-ssl",
+        "--enable-sockets",
+        "--enable-soap",
+        "--with-xmlrpc",
+        "--with-libevent-dir",
+        "--with-mcrypt",
+        "--enable-mbstring",
+        "--with-t1lib",
+        "--with-mysql",
+        "--with-mysqli=/usr/bin/mysql_config",
+        "--with-mysql-sock",
+        "--with-sqlite3",
+        "--with-pdo-mysql",
+        "--with-pdo-sqlite"
+      ]
+    },
+    "LAMP": {
+      "httpd_conf": {
+        "dir": "/etc/httpd/conf.d/",
+        "name": "virtual.conf"
+      },
+      "vhost_domain": "lamp.monosense.com",
+      "www": "/var/www/",
+      "doc_root": "/var/www/html/",
+      "group": {
+        "name": "www"
+      }
+    }
+  },
   "automatic": {
     "chef_packages": {
       "ohai": {
@@ -268,6 +776,7 @@
           },
           "state": "up",
           "arp": {
+            "169.254.169.254": "06:10:c9:34:56:7d",
             "172.31.16.1": "06:10:c9:34:56:7d"
           },
           "routes": [
@@ -305,16 +814,16 @@
           "lo": {
             "tx": {
               "queuelen": "1",
-              "bytes": "1357087",
-              "packets": "889",
+              "bytes": "17470823",
+              "packets": "11218",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "1357087",
-              "packets": "889",
+              "bytes": "17470823",
+              "packets": "11218",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -323,16 +832,16 @@
           "eth0": {
             "tx": {
               "queuelen": "1000",
-              "bytes": "5133113",
-              "packets": "71308",
+              "bytes": "8715420",
+              "packets": "94161",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "237018823",
-              "packets": "166376",
+              "bytes": "262877194",
+              "packets": "197549",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -353,13 +862,13 @@
     "filesystem": {
       "/dev/xvda1": {
         "kb_size": "8123812",
-        "kb_used": "2127140",
-        "kb_available": "5896424",
+        "kb_used": "2165176",
+        "kb_available": "5858388",
         "percent_used": "27%",
         "mount": "/",
         "total_inodes": "524288",
-        "inodes_used": "87015",
-        "inodes_available": "437273",
+        "inodes_used": "87878",
+        "inodes_available": "436410",
         "inodes_percent_used": "17%",
         "fs_type": "ext4",
         "mount_options": [
@@ -448,23 +957,23 @@
         "free": "0kB"
       },
       "total": "1019336kB",
-      "free": "120320kB",
-      "buffers": "61428kB",
-      "cached": "585308kB",
-      "active": "441252kB",
-      "inactive": "315172kB",
-      "dirty": "108kB",
+      "free": "180844kB",
+      "buffers": "64772kB",
+      "cached": "488476kB",
+      "active": "431264kB",
+      "inactive": "267032kB",
+      "dirty": "64kB",
       "writeback": "0kB",
-      "anon_pages": "109660kB",
-      "mapped": "25856kB",
-      "slab": "124788kB",
-      "slab_reclaimable": "112416kB",
-      "slab_unreclaim": "12372kB",
-      "page_tables": "7992kB",
+      "anon_pages": "145024kB",
+      "mapped": "32848kB",
+      "slab": "121644kB",
+      "slab_reclaimable": "108704kB",
+      "slab_unreclaim": "12940kB",
+      "page_tables": "8312kB",
       "nfs_unstable": "0kB",
       "bounce": "0kB",
       "commit_limit": "509668kB",
-      "committed_as": "340544kB",
+      "committed_as": "625240kB",
       "vmalloc_total": "34359738367kB",
       "vmalloc_used": "0kB",
       "vmalloc_chunk": "0kB"
@@ -549,10 +1058,10 @@
       "cores": 1
     },
     "ip6address": "fe80::477:d7ff:fe69:46d",
-    "uptime_seconds": 66833,
-    "uptime": "18 hours 33 minutes 53 seconds",
-    "idletime_seconds": 66740,
-    "idletime": "18 hours 32 minutes 20 seconds",
+    "uptime_seconds": 80571,
+    "uptime": "22 hours 22 minutes 51 seconds",
+    "idletime_seconds": 80403,
+    "idletime": "22 hours 20 minutes 03 seconds",
     "fips": {
       "kernel": {
         "enabled": false
@@ -2786,6 +3295,12 @@
           "members": [
 
           ]
+        },
+        "www": {
+          "gid": 501,
+          "members": [
+            "ec2-user"
+          ]
         }
       }
     },
@@ -2820,7 +3335,7 @@
       "ps": "ps -ef"
     },
     "init_package": "init",
-    "ohai_time": 1467688642.678902,
+    "ohai_time": 1467702380.9604855,
     "hostname": "ip-172-31-26-201",
     "machinename": "ip-172-31-26-201",
     "fqdn": "ip-172-31-26-201.ap-northeast-1.compute.internal",
@@ -2836,12 +3351,12 @@
       "by_device": {
         "/dev/xvda1": {
           "kb_size": "8123812",
-          "kb_used": "2127140",
-          "kb_available": "5896424",
+          "kb_used": "2165176",
+          "kb_available": "5858388",
           "percent_used": "27%",
           "total_inodes": "524288",
-          "inodes_used": "87015",
-          "inodes_available": "437273",
+          "inodes_used": "87878",
+          "inodes_available": "436410",
           "inodes_percent_used": "17%",
           "fs_type": "ext4",
           "mount_options": [
@@ -2944,12 +3459,12 @@
       "by_mountpoint": {
         "/": {
           "kb_size": "8123812",
-          "kb_used": "2127140",
-          "kb_available": "5896424",
+          "kb_used": "2165176",
+          "kb_available": "5858388",
           "percent_used": "27%",
           "total_inodes": "524288",
-          "inodes_used": "87015",
-          "inodes_available": "437273",
+          "inodes_used": "87878",
+          "inodes_available": "436410",
           "inodes_percent_used": "17%",
           "fs_type": "ext4",
           "mount_options": [
@@ -3050,13 +3565,13 @@
         "/dev/xvda1,/": {
           "device": "/dev/xvda1",
           "kb_size": "8123812",
-          "kb_used": "2127140",
-          "kb_available": "5896424",
+          "kb_used": "2165176",
+          "kb_available": "5858388",
           "percent_used": "27%",
           "mount": "/",
           "total_inodes": "524288",
-          "inodes_used": "87015",
-          "inodes_available": "437273",
+          "inodes_used": "87878",
+          "inodes_available": "436410",
           "inodes_percent_used": "17%",
           "fs_type": "ext4",
           "mount_options": [
@@ -3150,14 +3665,74 @@
     },
     "root_group": "root",
     "recipes": [
-
+      "LAMP",
+      "LAMP::default"
     ],
     "expanded_run_list": [
-
+      "LAMP::default"
     ],
     "roles": [
 
-    ]
+    ],
+    "cookbooks": {
+      "LAMP": {
+        "version": "0.1.0"
+      },
+      "apache2": {
+        "version": "3.2.2"
+      },
+      "mysql": {
+        "version": "7.2.0"
+      },
+      "php": {
+        "version": "1.9.0"
+      },
+      "php5-mysql": {
+        "version": "0.1.0"
+      },
+      "yum-mysql-community": {
+        "version": "0.2.0"
+      },
+      "smf": {
+        "version": "2.2.8"
+      },
+      "build-essential": {
+        "version": "6.0.0"
+      },
+      "xml": {
+        "version": "2.0.0"
+      },
+      "yum-epel": {
+        "version": "0.7.0"
+      },
+      "windows": {
+        "version": "1.44.1"
+      },
+      "iis": {
+        "version": "4.1.10"
+      },
+      "yum": {
+        "version": "3.11.0"
+      },
+      "rbac": {
+        "version": "1.0.3"
+      },
+      "seven_zip": {
+        "version": "2.0.1"
+      },
+      "mingw": {
+        "version": "1.2.2"
+      },
+      "compat_resource": {
+        "version": "12.10.6"
+      },
+      "chef-sugar": {
+        "version": "3.3.0"
+      },
+      "chef_handler": {
+        "version": "1.4.0"
+      }
+    }
   },
   "run_list": [
     "recipe[LAMP]"
