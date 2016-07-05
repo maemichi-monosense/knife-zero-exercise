@@ -1,5 +1,11 @@
 {
   "name": "monosense-LAMP-cooked",
+  "chef_environment": "development",
+  "override": {
+    "LAMP": {
+      "index": "index.php"
+    }
+  },
   "normal": {
     "knife_zero": {
       "host": "52.197.137.172"
@@ -511,11 +517,13 @@
       "vhost_domain": "lamp.monosense.com",
       "www": "/var/www/",
       "doc_root": "/var/www/html/",
+      "index": "index.html",
       "group": {
         "name": "www"
       },
       "timezone": "Asia/Tokyo"
-    }
+    },
+    "env": "dev"
   },
   "automatic": {
     "fqdn": "ip-172-31-26-201.ap-northeast-1.compute.internal",

@@ -1,4 +1,9 @@
+# command options
 local_mode true
+knife[:ssh_user] = 'ec2-user'
+knife[:use_sudo] = true
+
+knife[:editor] = 'subl -w'
 
 knife[:automatic_attribute_whitelist] = [
   "fqdn/",

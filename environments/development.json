@@ -1,0 +1,11 @@
+{
+  "name": "development",
+  "default_attributes": {
+    "env": "dev"
+  },
+  "override_attributes": {
+    "LAMP": {
+      "index": "index.php"
+    }
+  }
+}

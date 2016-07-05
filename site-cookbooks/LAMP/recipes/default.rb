@@ -42,13 +42,14 @@ directory "#{doc_root}" do
   action :create
 end
 
-html = "#{node['LAMP']['doc_root']}index.html"
+index = "#{node['LAMP']['doc_root']}#{node['LAMP']['index']}"
 
-file "#{html}" do
+cookbook_file "#{index}" do
   mode '0664'
+  source "#{node['LAMP']['index']}"
   owner "#{user}"
   group "#{name}"
-  action :nothing
+  action :create_if_missing
 end
 
 # add virtual hosts
