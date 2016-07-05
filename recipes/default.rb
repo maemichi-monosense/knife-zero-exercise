@@ -12,3 +12,14 @@ include_recipe "LAMP"
     action [:enable, :start]
   end
 end
+
+www = "#{node['LAMP']['www']}"
+group = "#{node['LAMP']['group']['name']}"
+
+directory "#{www}" do
+  recursive true
+  mode '2775'
+  owner "#{group}"
+  group "#{group}"
+  action :create
+end
