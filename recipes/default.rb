@@ -43,7 +43,7 @@ file "#{html}" do
   mode '0664'
   owner "#{user}"
   group "#{name}"
-  action :create
+  action :nothing
 end
 
 httpd_conf = node['LAMP']['httpd_conf']
