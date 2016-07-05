@@ -7,6 +7,7 @@
 # PHP
 %w(php-mysql php-devel php-mbstring).each { |p| package p }
 
+# start services and set to start on boot
 %w(httpd mysqld).each do |srv|
   service srv do
     supports status: true, restart: true, reload: true
@@ -14,6 +15,7 @@
   end
 end
 
+# setup doc root & set to be under www group
 user = 'ec2-user'
 name = "#{node['LAMP']['group']['name']}"
 
@@ -49,6 +51,7 @@ file "#{html}" do
   action :nothing
 end
 
+# add virtual hosts
 httpd_conf_d = node['LAMP']['httpd/conf.d']
 
 template "vhosts" do
@@ -57,6 +60,7 @@ template "vhosts" do
   mode '0644'
 end
 
+# set PHP.ini
 template "php.ini" do
   path '/etc/php.ini'
   source "php.ini.erb"
