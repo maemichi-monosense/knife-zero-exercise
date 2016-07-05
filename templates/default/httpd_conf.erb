@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerAdmin maemichi@monosense.co.jp
+    DocumentRoot <%= node['LAMP']['doc_root'] %>
+    ServerName <%= node['LAMP']['vhost_domain'] %>
+    ErrorLog logs/<%= node['LAMP']['vhost_domain'] %>-error_log
+    CustomLog logs/<%= node['LAMP']['vhost_domain'] %>-access_log common
+</VirtualHost>
+
+<Directory <%= node['LAMP']['doc_root'] %>>
+    AllowOverride All
+</Directory>

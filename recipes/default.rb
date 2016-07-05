@@ -45,3 +45,11 @@ file "#{html}" do
   group "#{name}"
   action :touch
 end
+
+httpd_conf = node['LAMP']['httpd_conf']
+
+template "httpd_conf" do
+  path "#{httpd_conf['dir']}#{httpd_conf['name']}"
+  source "httpd_conf.erb"
+  mode '0644'
+end
